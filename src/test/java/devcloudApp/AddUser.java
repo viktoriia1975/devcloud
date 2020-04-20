@@ -60,7 +60,7 @@ public class AddUser {
         viewMenu.click();
 
 
-        Thread.sleep(4000);
+       
 
         WebElement editButton = driver.findElement(By.xpath("//button[contains(@class,'btn btn-light ng-star-inserted')]"));
 
