@@ -8,6 +8,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class AddUser {
 
@@ -17,6 +18,10 @@ public class AddUser {
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\Администратор\\Desktop\\driver\\chromedriver.exe");
 
         WebDriver driver = new ChromeDriver();
+
+        driver.manage().window().maximize();
+
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         driver.get("https://devcloud.connectedio.com/login");
 
@@ -37,19 +42,9 @@ public class AddUser {
 
         loginButton.click();
 
-        Thread.sleep(4000);
-
-        WebElement arrowButton = driver.findElement(By.xpath("//i[contains(@class,'fas fa-chevron-right')]"));
-
-        arrowButton.click();
-
         WebElement userMenu = driver.findElement(By.xpath("//span[contains(text(),'Users')]"));
 
-        Thread.sleep(4000);
-
         userMenu.click();
-
-        Thread.sleep(4000);
 
         WebElement user =  driver.findElement(By.xpath("//tr[1]//td[6]//div[1]//button[1]"));
 
@@ -59,8 +54,6 @@ public class AddUser {
 
         viewMenu.click();
 
-
-       
 
         WebElement editButton = driver.findElement(By.xpath("//button[contains(@class,'btn btn-light ng-star-inserted')]"));
 
